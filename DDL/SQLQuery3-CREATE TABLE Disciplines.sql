@@ -1,4 +1,4 @@
-USE PV_319_DDL
+USE PV_319_DDL;
 GO
 
 --CREATE TABLE Disciplines
@@ -19,11 +19,11 @@ GO
 
 --CREATE TABLE DisciplinesDirectionsRelation
 --(
---	discipline	SMALLINT,
 --	direction	TINYINT,
---	PRIMARY KEY(discipline, direction),
---	CONSTRAINT FK_DDR_discipline_2_Disciplines	FOREIGN KEY (discipline) REFERENCES Disciplines(discipline_id),
---	CONSTRAINT FK_DDR_direction_2_Directions	FOREIGN KEY(direction)	REFERENCES Directions(direction_id)
+--	discipline	SMALLINT,
+--	PRIMARY KEY(direction, discipline),
+--	CONSTRAINT FK_DDR_direction_2_Directions	FOREIGN KEY(direction)	REFERENCES Directions(direction_id),
+--	CONSTRAINT FK_DDR_discipline_2_Disciplines	FOREIGN KEY (discipline) REFERENCES Disciplines(discipline_id)
 --);
 
 --CREATE TABLE RequiredDisciplines
