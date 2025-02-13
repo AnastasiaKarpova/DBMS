@@ -12,7 +12,23 @@ AND direction_name LIKE N'Разработка%' --LIKE позволяет находить не точное совпа
 
 GO
 
-SELECT * FROM Disciplines;
+--SELECT * FROM Disciplines;
+
+SELECT
+		[Направление обучения] = direction_name,
+		[Количество занятий] = SUM(number_of_lessons)
+FROM Disciplines, Directions, DisciplinesDirectionsRelation
+WHERE direction = direction_id
+AND discipline = discipline_id
+GROUP BY direction_name
+
+SELECT
+		[Направление обучения] = direction_name,
+		[Количество дисциплин] = COUNT(discipline)
+FROM Disciplines, Directions, DisciplinesDirectionsRelation
+WHERE discipline = discipline_id
+AND direction = direction_id
+GROUP BY direction_name
 
 --SELECT
 --		discipline_name AS N'Дисциплина',
