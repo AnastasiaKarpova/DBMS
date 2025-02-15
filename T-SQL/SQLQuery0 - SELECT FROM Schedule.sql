@@ -15,6 +15,7 @@ FROM	Schedule, Groups, Disciplines, Teachers
 WHERE	[group]				= group_id
 AND		discipline			= discipline_id
 AND		teacher				= teacher_id
+--AND		discipline			= (SELECT discipline_id FROM Disciplines WHERE discipline_name LIKE N'Объектно%')
 ;
 
 --SELECT * FROM Schedule;
