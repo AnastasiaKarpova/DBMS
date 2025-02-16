@@ -1,9 +1,9 @@
-USE PV_319_Import;
+п»їUSE PV_319_Import;
 GO
 
 SELECT
-		[N'Направление обучения'] = direction_name,
-		[N'Количество дисциплин'] = COUNT(discipline_name)
+		[N'РќР°РїСЂР°РІР»РµРЅРёРµ РѕР±СѓС‡РµРЅРёСЏ'] = direction_name,
+		[N'РљРѕР»РёС‡РµСЃС‚РІРѕ РґРёСЃС†РёРїР»РёРЅ'] = COUNT(discipline_name)
 FROM Disciplines, Directions, DisciplinesDirectionsRelation
 WHERE discipline = discipline_id
 AND	direction = direction_id

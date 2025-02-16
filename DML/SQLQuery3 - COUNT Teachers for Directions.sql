@@ -1,9 +1,9 @@
-USE PV_319_Import;
+п»їUSE PV_319_Import;
 GO
 
 SELECT
-		[Направление обучения] = direction_name,
-		[Количество преподавателей] = 
+		[РќР°РїСЂР°РІР»РµРЅРёРµ РѕР±СѓС‡РµРЅРёСЏ] = direction_name,
+		[РљРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРµРїРѕРґР°РІР°С‚РµР»РµР№] = 
 		(SELECT SUM(teachers.number_of_teachers)
 		FROM (SELECT discipline_id, COUNT(teacher_id) AS number_of_teachers
 				FROM Teachers, Disciplines, TeachersDisciplinesRelation

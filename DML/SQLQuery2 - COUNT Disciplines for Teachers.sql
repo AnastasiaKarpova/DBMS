@@ -1,9 +1,9 @@
-USE PV_319_Import;
+п»їUSE PV_319_Import;
 GO
 
 SELECT
-		[N'Преподаватель'] = FORMATMESSAGE(N'%s %s %s', last_name, first_name, middle_name),
-		[N'Количество дисциплин'] = COUNT(discipline_id)
+		[N'РџСЂРµРїРѕРґР°РІР°С‚РµР»СЊ'] = FORMATMESSAGE(N'%s %s %s', last_name, first_name, middle_name),
+		[N'РљРѕР»РёС‡РµСЃС‚РІРѕ РґРёСЃС†РёРїР»РёРЅ'] = COUNT(discipline_id)
 FROM Teachers, Disciplines, TeachersDisciplinesRelation
 WHERE teacher = teacher_id
 AND discipline = discipline_id

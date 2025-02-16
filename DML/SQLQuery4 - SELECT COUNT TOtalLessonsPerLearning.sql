@@ -1,13 +1,13 @@
-USE PV_319_Import;
+п»їUSE PV_319_Import;
 GO
 
 SELECT
-		discipline_name AS N'Дисциплина',
-		number_of_lessons AS N'Количество занятий'
+		discipline_name AS N'Р”РёСЃС†РёРїР»РёРЅР°',
+		number_of_lessons AS N'РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РЅСЏС‚РёР№'
 FROM Directions, Disciplines, DisciplinesDirectionsRelation
 WHERE direction = direction_id
 AND discipline = discipline_id
-AND direction_name LIKE N'Разработка%' --LIKE позволяет находить не точное совпадение, а подстроку в таблице
+AND direction_name LIKE N'Р Р°Р·СЂР°Р±РѕС‚РєР°%' --LIKE РїРѕР·РІРѕР»СЏРµС‚ РЅР°С…РѕРґРёС‚СЊ РЅРµ С‚РѕС‡РЅРѕРµ СЃРѕРІРїР°РґРµРЅРёРµ, Р° РїРѕРґСЃС‚СЂРѕРєСѓ РІ С‚Р°Р±Р»РёС†Рµ
 ;
 
 GO
@@ -15,29 +15,29 @@ GO
 --SELECT * FROM Disciplines;
 
 SELECT
-		[Направление обучения] = direction_name,
-		[Количество занятий] = SUM(number_of_lessons)
+		[РќР°РїСЂР°РІР»РµРЅРёРµ РѕР±СѓС‡РµРЅРёСЏ] = direction_name,
+		[РљРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РЅСЏС‚РёР№] = SUM(number_of_lessons)
 FROM Disciplines, Directions, DisciplinesDirectionsRelation
 WHERE direction = direction_id
 AND discipline = discipline_id
 GROUP BY direction_name
 
 SELECT
-		[Направление обучения] = direction_name,
-		[Количество дисциплин] = COUNT(discipline)
+		[РќР°РїСЂР°РІР»РµРЅРёРµ РѕР±СѓС‡РµРЅРёСЏ] = direction_name,
+		[РљРѕР»РёС‡РµСЃС‚РІРѕ РґРёСЃС†РёРїР»РёРЅ] = COUNT(discipline)
 FROM Disciplines, Directions, DisciplinesDirectionsRelation
 WHERE discipline = discipline_id
 AND direction = direction_id
 GROUP BY direction_name
 
 --SELECT
---		discipline_name AS N'Дисциплина',
---		number_of_lessons AS N'Количество дисциплин'
+--		discipline_name AS N'Р”РёСЃС†РёРїР»РёРЅР°',
+--		number_of_lessons AS N'РљРѕР»РёС‡РµСЃС‚РІРѕ РґРёСЃС†РёРїР»РёРЅ'
 --FROM Directions, Disciplines, DisciplinesDirectionsRelation
 --WHERE direction = direction_id
 --AND discipline = discipline_id
---AND direction_name LIKE N'%Дизайн' 
----- direction_name = N'Компьютерная графика и дизайн'
+--AND direction_name LIKE N'%Р”РёР·Р°Р№РЅ' 
+---- direction_name = N'РљРѕРјРїСЊСЋС‚РµСЂРЅР°СЏ РіСЂР°С„РёРєР° Рё РґРёР·Р°Р№РЅ'
 --;
 
 --GO

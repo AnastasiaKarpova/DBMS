@@ -1,4 +1,4 @@
-USE PV_319_DDL;
+﻿USE PV_319_DDL;
 GO
 
 UPDATE Groups SET direction=2 WHERE group_id=4;
