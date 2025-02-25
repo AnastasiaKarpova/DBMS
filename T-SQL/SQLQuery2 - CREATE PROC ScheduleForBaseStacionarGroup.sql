@@ -3,7 +3,7 @@ SET DATEFIRST 1;
 GO
 
 
-ALTER PROCEDURE sp_ScheduleForBaseStacionarGroup
+CREATE PROCEDURE sp_ScheduleForBaseStacionarGroup
 	@group_name					NVARCHAR(16),
 	@discipline_name			NVARCHAR(150),
 	--@discipline_2				NVARCHAR(150),
@@ -50,7 +50,7 @@ BEGIN
 		BEGIN
 			PRINT('IIF:');
 			PRINT(DATEPART(WEEKDAY, @date));
-			SET @date = IIF(@current_week_present=1, DATEADD(WEEK, 7, @date), DATEADD(DAY, 5, @date));
+			SET @date = IIF(@current_week_present=1, DATEADD(DAY, 7, @date), DATEADD(DAY, 5, @date));
 			SET @current_week_present = IIF(@current_week_present=1, 0, 1);
 		END
 		--PRINT(@current_week_present);
