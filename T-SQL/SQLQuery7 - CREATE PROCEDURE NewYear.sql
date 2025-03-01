@@ -4,10 +4,11 @@ GO
 
 CREATE PROCEDURE sp_AddNewYearHolidayFor
 	@year	AS	SMALLINT
+AS
 BEGIN
-	DECLARE @date		AS	DATE	= DATEFROMPARTS(2025,01,01);
-	DECLARE @weekday	AS	TINYINT	= DATEPART(WEEKDAY, @date);
-	DECLARE @start_date	AS	DATE	= DATEADD(DAY, -@weekday+1, @date);
+	DECLARE @new_year_date		AS	DATE	= DATEFROMPARTS(@year,01,01);
+	DECLARE @weekday	AS	TINYINT	= DATEPART(WEEKDAY, @new_year_date);
+	DECLARE @start_date	AS	DATE	= DATEADD(DAY, -@weekday+1, @new_year_date);
 	DECLARE @date		AS	DATE	= @start_date;
 	DECLARE @duration	AS	TINYINT	= (SELECT duration FROM Holidays WHERE holiday_id=1);
 	--DECLARE @day		AS	TINYINT = 0;
