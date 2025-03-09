@@ -2,7 +2,7 @@ USE PV_319_Import;
 SET DATEFIRST 1;
 GO
 
-CREATE PROCEDURE sp_AddHolidays
+ALTER PROCEDURE sp_AddHolidays
 @year	AS	SMALLINT,
 @name	AS	NVARCHAR(150)
 AS
@@ -14,7 +14,7 @@ BEGIN
 
 	DECLARE 
 		@date	AS DATE		= @start_date,
-		@day	AS TINYINT	= 1;
+		@day	AS TINYINT	= 0;
 		WHILE @day < @duration
 		BEGIN
 			INSERT DaysOFF
